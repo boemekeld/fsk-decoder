@@ -250,6 +250,10 @@ chokidar
   .watch(__dirname, { ignoreInitial: true })
   .on('add', file => {
     if (path.extname(file).toLowerCase() === '.cu8') {
-      processFile(file)
+      try {
+        processFile(file);
+      } catch(e) {
+      }
+      fs.unlinkSync(file);
     }
   })
