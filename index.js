@@ -247,7 +247,7 @@ function processFile(file) {
 }
 
 chokidar
-  .watch(__dirname, { ignoreInitial: true })
+  .watch(__dirname, { ignoreInitial: true, depth: 0 })
   .on('add', file => {
     if (path.extname(file).toLowerCase() === '.cu8') {
       try {
