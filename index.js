@@ -168,8 +168,8 @@ class FrameParser {
 }
 
 const mqttClient = new MqttClient('mqtt://homeassistant.local', {
-  username: 'XXX',
-  password: 'YYY'
+  username: 'rtlsdr',
+  password: 'rtlsdrrules'
 })
 
 const discovered = new Set()
@@ -251,6 +251,7 @@ chokidar
   .on('add', file => {
     if (path.extname(file).toLowerCase() === '.cu8') {
       try {
+        console.log(file);
         processFile(file);
       } catch(e) {
       }
